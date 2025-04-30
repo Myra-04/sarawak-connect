@@ -1,0 +1,1 @@
+This is a placeholder for sarawak-connect/article_detail.php
