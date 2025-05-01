@@ -459,7 +459,8 @@ html, body {
   margin-top: 20px;
 }
 
-/*ARTICLES PAGE*/
+/* ========== ARTICLES PAGE STYLES ========== */
+
 .articles-page {
   padding: 60px 20px;
   max-width: 1100px;
@@ -472,6 +473,16 @@ html, body {
   margin-bottom: 40px;
 }
 
+.articles-header h1 {
+  font-size: 32px;
+  color: #8B0000;
+}
+
+.articles-header p {
+  font-size: 16px;
+  color: #333;
+}
+
 .articles-list {
   display: flex;
   flex-wrap: wrap;
@@ -479,24 +490,39 @@ html, body {
   justify-content: center;
 }
 
+/* Card Styling */
 .article-card {
   display: flex;
   flex-direction: row;
-  background-color: #fffdf3;
-  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.85); /* semi-transparent white */
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
   max-width: 520px;
   width: 100%;
   min-height: 200px;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
 }
 
+/* Animation */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Article Image */
 .article-card img {
   width: 180px;
   height: 100%;
   object-fit: cover;
 }
 
+/* Text Area */
 .article-content {
   padding: 15px;
   flex: 1;
@@ -506,11 +532,15 @@ html, body {
   margin-top: 0;
   font-size: 18px;
   color: #8B0000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .article-content p {
   font-size: 14px;
   margin: 10px 0;
+  color: #333;
 }
 
 .article-content a {
@@ -519,6 +549,11 @@ html, body {
   text-decoration: none;
 }
 
+.article-content a:hover {
+  text-decoration: underline;
+}
+
+/* Tag Badge */
 .article-tag {
   display: inline-block;
   background-color: #228B22;
@@ -529,12 +564,157 @@ html, body {
   margin-bottom: 8px;
 }
 
-/* Article Details */
-.article-detail {
-  max-width: 800px;
-  margin: 60px auto;
+/* Read Label */
+.read-label {
+  font-size: 12px;
+  background-color: #d4edda;
+  color: #155724;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-left: 8px;
+}
+
+/* ========== PROFILE PAGE ========== */
+.profile-page {
+  max-width: 600px;
+  margin: 80px auto;
+  text-align: center;
+}
+
+.profile-card,
+.login-prompt-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 40px 30px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.profile-card h2,
+.login-prompt-card h2 {
+  color: #8B0000;
+  margin-bottom: 10px;
+}
+
+.profile-btn {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: forestgreen;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.profile-btn:hover {
+  background-color: #186c18;
+}
+
+/* ========== ABOUT PAGE ========== */
+.about-page {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 80px auto;
+}
+
+.about-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.about-card h1 {
+  font-size: 28px;
+  color: #8B0000;
+  margin-bottom: 20px;
+}
+
+.about-card p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.about-banner {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+  max-height: 350px;
+}
+
+/* ========== QUIZ PAGE ========== */
+.quiz-page {
+  max-width: 700px;
+  margin: 80px auto;
   padding: 20px;
+}
+
+.quiz-card {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 40px 30px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.quiz-card h2 {
+  color: #8B0000;
+  margin-bottom: 20px;
+}
+
+.question-text {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.quiz-option {
+  display: block;
+  font-size: 16px;
   color: #222;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.quiz-cta {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.quiz-btn {
+  background-color: #8B0000;
+  color: white;
+  padding: 12px 26px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease;
+}
+
+.quiz-btn:hover {
+  background-color: #a40000;
+}
+
+/* ========== ARTICLE DETAILS PAGE ========== */
+.article-detail {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+  animation: fadeInUp 0.5s ease forwards;
 }
 
 .article-image img {
@@ -573,3 +753,83 @@ html, body {
   font-weight: bold;
   text-decoration: none;
 }
+
+/* ========== PROFILES HISTORY ========== */
+.profile-history {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.profile-history li {
+  margin-bottom: 10px;
+}
+
+.profile-history a {
+  color: #228B22;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ========== PROFILE DROPDOWN ========== */
+.profile-toggle {
+  cursor: pointer;
+  font-size: 13px;
+  padding: 4px 10px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.profile-toggle .arrow {
+  font-size: 10px;
+}
+
+.profile-menu {
+  display: none;
+  position: absolute;
+  top: 26px;
+  right: 0;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 4px 0;
+  min-width: 130px;
+  font-size: 12px;
+  z-index: 100;
+}
+
+.profile-menu li a {
+  display: block;
+  padding: 6px 14px;
+  color: #333;
+  text-decoration: none;
+}
+
+.profile-menu li a:hover {
+  background-color: #f0f0f0;
+}
+
+.profile-dropdown:hover .profile-menu {
+  display: block;
+}
+
+/* ========== HOMEPAGE WELCOME ========== */
+.homepage-welcome {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 30px;
+  color: #8B0000;
+}
+
+.articles-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+

@@ -12,12 +12,17 @@ $navLabels = [
 ];
 $nav = $navLabels[$lang];
 ?>
+
+<?php if (isset($_SESSION['user_id'])): ?>
+  <li><a href="reading_history.php">📘 History</a></li>
+<?php endif; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Sarawak Connect</title>
-  <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -42,11 +47,22 @@ $nav = $navLabels[$lang];
 
     <!-- RIGHT: Profile and Language -->
     <ul class="nav-right">
-      <li class="profile-link">
-        <a href="profile.php">
-          <span class="icon">👤</span><?php echo $nav['profile']; ?>
-        </a>
-      </li>
+    <?php if (isset($_SESSION['user_id'])): ?>
+      <li class="profile-dropdown">
+  <div class="profile-toggle">👤 <?php echo htmlspecialchars($_SESSION['username']); ?> <span class="arrow">▼</span></div>
+  <ul class="profile-menu">
+    <li><a href="profile.php">Profile</a></li>
+    <li><a href="logout.php">Log Out</a></li>
+  </ul>
+</li>
+
+
+<?php else: ?>
+  <li class="profile-link">
+    <a href="login.php">👤 Login</a>
+  </li>
+<?php endif; ?>
+
       <li class="lang-dropdown" id="lang-dropdown">
         <div class="lang-current" id="lang-toggle">
           🌐 <?php echo ucfirst($lang); ?> ▼

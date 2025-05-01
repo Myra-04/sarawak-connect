@@ -4,6 +4,16 @@ $language = $_SESSION['lang'] ?? 'english';
 include('includes/header.php');
 ?>
 
+<?php
+session_start();
+if (isset($_SESSION['user_id'])) {
+  header("Location: home_loggedin.php");
+  exit;
+}
+$language = $_SESSION['lang'] ?? 'english';
+include('includes/header.php');
+?>
+
 <div class="homepage">
   <section class="hero-section">
     <div class="hero-text">
