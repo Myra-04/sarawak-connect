@@ -2,7 +2,6 @@
 session_start();
 include('includes/db_connect.php');
 
-session_start();
 if (isset($_SESSION['user_id'])) {
   header("Location: index.php");
   exit;

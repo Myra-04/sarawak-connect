@@ -69,7 +69,7 @@ if (isset($_SESSION['user_id'])) {
 
 <?php if (isset($_SESSION['user_id'])): ?>
   <div class="quiz-cta">
-    <a href="quiz.php" class="quiz-btn">Start Quiz →</a>
+    <a href="quiz.php?article_id= <?php echo $article_id; ?>"class="quiz-btn">Start Quiz →</a>
   </div>
 <?php endif; ?>
 
