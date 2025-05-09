@@ -10,7 +10,7 @@ include('includes/header.php');
 ?>
 
 <div class="main-container"> <!-- ensures footer sticks and center layout -->
-  <div class="homepage guest-homepage"> <!-- extra class for guest styling -->
+  <div class="guest-homepage"><!-- extra class for guest styling -->
     <div class="homepage-content">
       <section class="hero-section">
         <div class="hero-text">

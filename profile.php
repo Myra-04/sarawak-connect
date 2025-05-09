@@ -9,8 +9,10 @@ include('includes/header.php');
     <div class="profile-card">
       <h2>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h2>
       <p>You can manage your reading preferences and see your history below.</p>
-      <a href="reading_history.php" class="profile-btn">📖 Full Reading History</a>
+        <a href="reading_history.php" class="profile-btn">📖 Full Reading History</a>
+        <a href="quiz_history.php" class="profile-btn">🧠 Full Quiz History</a>
 
+      <!-- Recently Read Articles -->
       <h3 style="margin-top: 30px;">Recently Read Articles:</h3>
       <?php
         $user_id = $_SESSION['user_id'];
@@ -25,7 +27,6 @@ include('includes/header.php');
           ORDER BY rh.viewed_at DESC
           LIMIT 5
         ";
-
         $stmt = $conn->prepare($query);
         $stmt->bind_param("i", $user_id);
         $stmt->execute();
@@ -41,6 +42,35 @@ include('includes/header.php');
           </li>
         <?php endwhile; ?>
       </ul>
+
+      <!-- Recent Quiz History -->
+      <h3 style="margin-top: 30px;">Recent Quiz History:</h3>
+      <?php
+        $quizQuery = "
+          SELECT q.article_id, q.score, q.taken_at, a.$title_field AS title
+          FROM quiz_history q
+          JOIN articles a ON a.id = q.article_id
+          WHERE q.user_id = ?
+          ORDER BY q.taken_at DESC
+          LIMIT 5
+        ";
+        $quizStmt = $conn->prepare($quizQuery);
+        $quizStmt->bind_param("i", $user_id);
+        $quizStmt->execute();
+        $quizResult = $quizStmt->get_result();
+      ?>
+
+      <ul class="profile-history">
+        <?php while ($quiz = $quizResult->fetch_assoc()): ?>
+          <li>
+            <strong><?php echo htmlspecialchars($quiz['title']); ?></strong> — 
+            Score: <?php echo $quiz['score']; ?>/5 
+            (<?php echo date("d M Y, H:i", strtotime($quiz['taken_at'])); ?>)
+            <a href="article.php?id=<?php echo $quiz['article_id']; ?>">🔁 Review</a>
+          </li>
+        <?php endwhile; ?>
+      </ul>
+
     </div>
   <?php else: ?>
     <div class="login-prompt-card">
@@ -52,4 +82,3 @@ include('includes/header.php');
 </div>
 
 <?php include('includes/footer.php'); ?>
-

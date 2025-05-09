@@ -325,10 +325,12 @@ nav {
   }
 
 /* HOMEPAGE GUEST SECTION */
-.homepage {
+.guest-homepage {
+  margin-left: 30px;
+  margin-right: 30px;
   padding-top: 100px;
   flex: 1;
-  background-image: url("../images/bg.jpg"); /* adjust path if needed */
+  background-image: url("../images/bg.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -341,6 +343,7 @@ nav {
 /* HOMEPAGE CONTENT */
 .homepage-content {
   background: rgba(255, 255, 255, 0.85);
+  margin: 40px;
   padding: 40px;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -736,6 +739,32 @@ body, html {
   background-color: #a40000;
 }
 
+.quiz-result-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  text-align: center;
+}
+
+.quiz-result-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  max-width: 600px;
+}
+
+.quiz-result-card h2 {
+  color: #8B0000;
+  margin-bottom: 15px;
+}
+
+.quiz-result-card p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
 /* ========== ARTICLE DETAILS PAGE ========== */
 .article-detail {
   max-width: 900px;
@@ -869,7 +898,7 @@ body, html {
 }
 
 /* Proper spacing for home_loggedin.php */
-.homepage {
+.loggedin-homepage {
   min-height: 100vh;
   display: flex;
   flex-direction: column;

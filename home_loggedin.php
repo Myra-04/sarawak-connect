@@ -9,7 +9,7 @@ $title_field = $lang === 'malay' ? 'title_my' : ($lang === 'mandarin' ? 'title_z
 $content_field = str_replace('title', 'content', $title_field);
 ?>
 
-<div class="homepage">
+<div class="loggedin-homepage">
   <section class="hero-section">
     <div class="hero-text">
       <?php

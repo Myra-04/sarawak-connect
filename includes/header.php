@@ -14,7 +14,6 @@ $nav = $navLabels[$lang];
 ?>
 
 <?php if (isset($_SESSION['user_id'])): ?>
-  <li><a href="reading_history.php">📘 History</a></li>
 <?php endif; ?>
 
 <!DOCTYPE html>
@@ -70,7 +69,7 @@ $nav = $navLabels[$lang];
         <ul class="lang-menu" id="lang-menu">
           <li><a href="set_language.php?lang=english">English</a></li>
           <li><a href="set_language.php?lang=malay">Malay</a></li>
-          <li><a href="set_language.php?lang=mandarin">Mandarin (官話)</a></li>
+          <li><a href="set_language.php?lang=mandarin">Mandarin</a></li>
         </ul>
       </li>
     </ul>
