@@ -3,6 +3,9 @@ session_start();
 include('includes/db_connect.php');
 include('includes/header.php');
 
+require_once 'classes/User.php';
+require_once 'classes/Student.php';
+
 $lang = $_SESSION['lang'] ?? 'english';
 
 $profileLabels = [
@@ -52,8 +55,11 @@ $t = $profileLabels[$lang];
 
 <div class="profile-page">
   <?php if (isset($_SESSION['user_id'])): ?>
+    <?php
+      $student = new Student($_SESSION['username']);
+    ?>
     <div class="profile-card">
-      <h2><?php echo $t['welcome']; ?>, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h2>
+      <h2><?php echo $student->getParentGreeting();?> </h2>
       <p><?php echo $t['manage']; ?></p>
       <a href="reading_history.php" class="profile-btn"><?php echo $t['reading_history']; ?></a>
       <a href="quiz_history.php" class="profile-btn"><?php echo $t['quiz_history']; ?></a>
